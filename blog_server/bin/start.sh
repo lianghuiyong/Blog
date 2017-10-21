@@ -6,12 +6,12 @@ sudo chmod -R 777 /root/blog/blog_web/*
 ps -fe|grep nginx |grep -v grep
 if [ $? -ne 0 ]
 then
-  nginx  -t -c /root/blog/blog_server/config/nginx.conf
-  nginx  -c /root/blog/blog_server/config/nginx.conf
+  /usr/local/openresty/nginx/sbin/nginx  -t -c /root/blog/blog_server/config/nginx.conf
+  /usr/local/openresty/nginx/sbin/nginx  -c /root/blog/blog_server/config/nginx.conf
   echo "nginx: start"
 else
-  nginx  -t -c /root/blog/blog_server/config/nginx.conf
-  nginx  -s reload -c /root/blog/blog_server/config/nginx.conf
+  /usr/local/openresty/nginx/sbin/nginx  -t -c /root/blog/blog_server/config/nginx.conf
+  /usr/local/openresty/nginx/sbin/nginx  -s reload -c /root/blog/blog_server/config/nginx.conf
   echo "nginx: reload"
 fi
 echo -e "===========================================\n\n"
