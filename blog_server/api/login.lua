@@ -22,7 +22,7 @@ if username == "admin" and password == "admin" then
     res['ret'] = true
     res['token'] = ngx.md5(username .. '/' .. tostring(ngx.time()))
 else
-    res['ret'] = false
+    res['ret'] = ngx.md5(username .. '/' .. tostring(ngx.time()))
 end
 
 ngx.say(cjson.encode(res))
